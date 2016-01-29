@@ -37,7 +37,7 @@
 			<tbody>
 				<tr>
 					<td><label>ORDER_ID::*</label></td>
-					<td><input id="ORDER_ID" tabindex="1" maxlength="20" size="20" name="ORDER_ID" autocomplete="off" value="<?=$ORDER_ID?>">
+					<td><input id="ORDER_ID" tabindex="1" maxlength="20" size="20" name="ORDER_ID" autocomplete="off" value="<?php echo $ORDER_ID ?>">
 					</td>
 				</tr>
 				<tr>
@@ -58,8 +58,8 @@
 					foreach($responseParamList as $paramName => $paramValue) {
 				?>
 				<tr >
-					<td style="border: 1px solid"><label><?=$paramName?></label></td>
-					<td style="border: 1px solid"><?=$paramValue?></td>
+					<td style="border: 1px solid"><label><?php echo $paramName?></label></td>
+					<td style="border: 1px solid"><?php echo $paramValue?></td>
 				</tr>
 				<?php
 					}

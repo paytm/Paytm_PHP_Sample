@@ -13,7 +13,7 @@ define('PAYTM_MERCHANT_KEY', 'xxxxxxxxxxxxxxxxxxxxxxxx'); //Change this constant
 define('PAYTM_MERCHANT_MID', 'xxxxxxxxxxxxxxxxxxxxxxx'); //Change this constant's value with MID (Merchant ID) received from Paytm
 define('PAYTM_MERCHANT_WEBSITE', 'xxxxxxx'); //Change this constant's value with Website name received from Paytm
 
-$PAYTM_DOMAIN = "test.paytm.in";
+$PAYTM_DOMAIN = "pguat.paytm.com";
 if (PAYTM_ENVIRONMENT == 'PROD') {
 	$PAYTM_DOMAIN = 'secure.paytm.in';
 }

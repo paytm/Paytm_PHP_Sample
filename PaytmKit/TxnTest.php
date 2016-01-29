@@ -27,7 +27,7 @@
 					<td><label>ORDER_ID::*</label></td>
 					<td><input id="ORDER_ID" tabindex="1" maxlength="20" size="20"
 						name="ORDER_ID" autocomplete="off"
-						value="<?= "ORDS" . rand(10000,99999999)?>">
+						value="<?php echo  "ORDS" . rand(10000,99999999)?>">
 					</td>
 				</tr>
 				<tr>

@@ -43,7 +43,7 @@ $checkSum = getChecksumFromArray($paramList,PAYTM_MERCHANT_KEY);
 </head>
 <body>
 	<center><h1>Please do not refresh this page...</h1></center>
-		<form method="post" action="<?=PAYTM_TXN_URL?>" name="f1">
+		<form method="post" action="<?php echo PAYTM_TXN_URL ?>" name="f1">
 		<table border="1">
 			<tbody>
 			<?php
@@ -51,7 +51,7 @@ $checkSum = getChecksumFromArray($paramList,PAYTM_MERCHANT_KEY);
 				echo '<input type="hidden" name="' . $name .'" value="' . $value . '">';
 			}
 			?>
-			<input type="hidden" name="CHECKSUMHASH" value="<?= $checkSum?>">
+			<input type="hidden" name="CHECKSUMHASH" value="<?php echo $checkSum ?>">
 			</tbody>
 		</table>
 		<script type="text/javascript">
