@@ -10,6 +10,6 @@
     - pgResponse.php – This file has the logic for processing PG response after the transaction        processing.
     - TxnStatus.php – Testing Status Query API
 
-# For Offline Checksum Utility below are the methods:
+# For Offline(Wallet Api) Checksum Utility below are the methods:
   1. getChecksumFromString : For generating the checksum
   2. verifychecksum_eFromStr : For verifing the checksum
