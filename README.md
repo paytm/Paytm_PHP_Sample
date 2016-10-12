@@ -9,3 +9,7 @@
     - pgRedirect.php – This file has the logic of checksum generation and passing all required parameters to Paytm PG. 
     - pgResponse.php – This file has the logic for processing PG response after the transaction        processing.
     - TxnStatus.php – Testing Status Query API
+
+# For Offline Checksum Utility below are the methods:
+  1. getChecksumFromString : For generating the checksum
+  2. verifychecksum_eFromStr : For verifing the checksum
