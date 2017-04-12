@@ -18,9 +18,13 @@
 
 		// Create an array having all required parameters for status query.
 		$requestParamList = array("MID" => PAYTM_MERCHANT_MID , "ORDERID" => $ORDER_ID);  
+		
+		$StatusCheckSum = getChecksumFromArray($requestParamList,PAYTM_MERCHANT_KEY);
+		
+		$requestParamList['CHECKSUMHASH'] = $StatusCheckSum;
 
-		// Call the PG's getTxnStatus() function for verifying the transaction status.
-		$responseParamList = getTxnStatus($requestParamList);
+		// Call the PG's getTxnStatusNew() function for verifying the transaction status.
+		$responseParamList = getTxnStatusNew($requestParamList);
 	}
 
 ?>
