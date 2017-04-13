@@ -126,9 +126,18 @@ function verifychecksum_eFromStr($str, $key, $checksumvalue) {
 }
 
 function getArray2Str($arrayList) {
+	$findme   = 'REFUND';
+	$findmepipe = '|';
 	$paramStr = "";
-	$flag = 1;
+	$flag = 1;	
 	foreach ($arrayList as $key => $value) {
+		$pos = strpos($value, $findme);
+		$pospipe = strpos($value, $findmepipe);
+		if ($pos !== false || $pospipe !== false) 
+		{
+			continue;
+		}
+		
 		if ($flag) {
 			$paramStr .= checkString_e($value);
 			$flag = 0;
