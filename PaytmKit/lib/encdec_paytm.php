@@ -213,4 +213,54 @@ function callNewAPI($apiURL, $requestParamList) {
 	$responseParamList = json_decode($jsonResponse,true);
 	return $responseParamList;
 }
-
+function getRefundChecksumFromArray($arrayList, $key, $sort=1) {
+	if ($sort != 0) {
+		ksort($arrayList);
+	}
+	$str = getRefundArray2Str($arrayList);
+	$salt = generateSalt_e(4);
+	$finalString = $str . "|" . $salt;
+	$hash = hash("sha256", $finalString);
+	$hashString = $hash . $salt;
+	$checksum = encrypt_e($hashString, $key);
+	return $checksum;
+}
+function getRefundArray2Str($arrayList) {	
+	$findmepipe = '|';
+	$paramStr = "";
+	$flag = 1;	
+	foreach ($arrayList as $key => $value) {		
+		$pospipe = strpos($value, $findmepipe);
+		if ($pospipe !== false) 
+		{
+			continue;
+		}
+		
+		if ($flag) {
+			$paramStr .= checkString_e($value);
+			$flag = 0;
+		} else {
+			$paramStr .= "|" . checkString_e($value);
+		}
+	}
+	return $paramStr;
+}
+function callRefundAPI($refundApiURL, $requestParamList) {
+	$jsonResponse = "";
+	$responseParamList = array();
+	$JsonData =json_encode($requestParamList);
+	$postData = 'JsonData='.urlencode($JsonData);
+	$ch = curl_init($apiURL);	
+	curl_setopt ($ch, CURLOPT_SSL_VERIFYHOST, 0);
+	curl_setopt ($ch, CURLOPT_SSL_VERIFYPEER, 0);
+	curl_setopt($ch, CURLOPT_URL, $refundApiURL);
+	curl_setopt($ch, CURLOPT_POST, true);
+	curl_setopt($ch, CURLOPT_POSTFIELDS, $postData);  
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); 
+	$headers = array();
+	$headers[] = 'Content-Type: application/json';
+	curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);  
+	$jsonResponse = curl_exec($ch);   
+	$responseParamList = json_decode($jsonResponse,true);
+	return $responseParamList;
+}
