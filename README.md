@@ -13,3 +13,9 @@
 # For Offline(Wallet Api) Checksum Utility below are the methods:
   1. getChecksumFromString : For generating the checksum
   2. verifychecksum_eFromStr : For verifing the checksum
+  
+# To generate refund checksum in PHP :
+  1. Create an array with key value pair of following paytm parameters 
+     (MID, ORDERID, TXNTYPE, REFUNDAMOUNT, TXNID, REFID)
+  2. To generate checksum, call the following method. This function returns the checksum as a string.
+     getRefundChecksumFromArray($arrayList, $key, $sort=1)
