@@ -169,7 +169,7 @@ function getTxnStatusNew($requestParamList) {
 }
 
 function initiateTxnRefund($requestParamList) {
-	$CHECKSUM = getChecksumFromArray($requestParamList,PAYTM_MERCHANT_KEY,0);
+	$CHECKSUM = getRefundChecksumFromArray($requestParamList,PAYTM_MERCHANT_KEY,0);
 	$requestParamList["CHECKSUM"] = $CHECKSUM;
 	return callAPI(PAYTM_REFUND_URL, $requestParamList);
 }
