@@ -57,8 +57,6 @@ function generateSalt_e($length) {
 }
 
 function checkString_e($value) {
-	//$myvalue = ltrim($value);
-	//$myvalue = rtrim($myvalue);
 	if ($value == 'null')
 		$value = '';
 	return $value;
