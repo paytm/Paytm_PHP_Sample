@@ -13,7 +13,7 @@ define('PAYTM_MERCHANT_KEY', 'xxxxxxxxxxxxxxxxxxxxxxxx'); //Change this constant
 define('PAYTM_MERCHANT_MID', 'xxxxxxxxxxxxxxxxxxxxxxx'); //Change this constant's value with MID (Merchant ID) received from Paytm
 define('PAYTM_MERCHANT_WEBSITE', 'xxxxxxx'); //Change this constant's value with Website name received from Paytm
 
-$PAYTM_DOMAIN = "pguat.paytm.com";
+/*$PAYTM_DOMAIN = "pguat.paytm.com";
 if (PAYTM_ENVIRONMENT == 'PROD') {
 	$PAYTM_DOMAIN = 'secure.paytm.in';
 }
@@ -21,6 +21,17 @@ if (PAYTM_ENVIRONMENT == 'PROD') {
 define('PAYTM_REFUND_URL', 'https://'.$PAYTM_DOMAIN.'/oltp/HANDLER_INTERNAL/REFUND');
 define('PAYTM_STATUS_QUERY_URL', 'https://'.$PAYTM_DOMAIN.'/oltp/HANDLER_INTERNAL/TXNSTATUS');
 define('PAYTM_STATUS_QUERY_NEW_URL', 'https://'.$PAYTM_DOMAIN.'/oltp/HANDLER_INTERNAL/getTxnStatus');
-define('PAYTM_TXN_URL', 'https://'.$PAYTM_DOMAIN.'/oltp-web/processTransaction');
+define('PAYTM_TXN_URL', 'https://'.$PAYTM_DOMAIN.'/oltp-web/processTransaction');*/
+
+$PAYTM_STATUS_QUERY_NEW_URL='https://securegw-stage.paytm.in/merchant-status/getTxnStatus';
+$PAYTM_TXN_URL='https://securegw-stage.paytm.in/theia/processTransaction';
+if (PAYTM_ENVIRONMENT == 'PROD') {
+	$PAYTM_STATUS_QUERY_NEW_URL='https://securegw.paytm.in/merchant-status/getTxnStatus';
+	$PAYTM_TXN_URL='https://securegw.paytm.in/theia/processTransaction';
+}
+define('PAYTM_REFUND_URL', '');
+define('PAYTM_STATUS_QUERY_URL', $PAYTM_STATUS_QUERY_NEW_URL);
+define('PAYTM_STATUS_QUERY_NEW_URL', $PAYTM_STATUS_QUERY_NEW_URL);
+define('PAYTM_TXN_URL', $PAYTM_TXN_URL);
 
 ?>
