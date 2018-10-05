@@ -14,18 +14,6 @@ function decrypt_e($crypt, $ky) {
 	return $data;
 }
 
-function pkcs5_pad_e($text, $blocksize) {
-	$pad = $blocksize - (strlen($text) % $blocksize);
-	return $text . str_repeat(chr($pad), $pad);
-}
-
-function pkcs5_unpad_e($text) {
-	$pad = ord($text{strlen($text) - 1});
-	if ($pad > strlen($text))
-		return false;
-	return substr($text, 0, -1 * $pad);
-}
-
 function generateSalt_e($length) {
 	$random = "";
 	srand((double) microtime() * 1000000);
